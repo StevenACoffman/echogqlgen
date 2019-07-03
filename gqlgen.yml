@@ -1,22 +1,8 @@
-# .gqlgen.yml example
-#
-# Refer to https://gqlgen.com/config/
-# for detailed .gqlgen.yml documentation.
+models:
+  Todo:
+    model: github.com/StevenACoffman/echogqlgen/echogqlgen.Todo
+  ID:
+    model: # override the default id marshaller to use ints
+      - github.com/99designs/gqlgen/graphql.IntID
+      - github.com/99designs/gqlgen/graphql.ID
 
-schema:
-- schema.graphql
-exec:
-  filename: generated.go
-model:
-  filename: models_gen.go
-resolver:
-  filename: resolver.go
-  type: Resolver
-autobind: []
-directives:
-  deprecated:
-    skip_runtime: true
-  include:
-    skip_runtime: true
-  skip:
-    skip_runtime: true
